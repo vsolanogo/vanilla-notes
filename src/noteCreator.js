@@ -1,7 +1,4 @@
-const getDates = (str) => {
-  const a = str.match(/\d{1,2}([\/.-])\d{1,2}\1\d{4}/g)
-  return a ? a : ""
-}
+import { getDates } from "./helper"
 
 export const NoteCreator = ({
   id,
