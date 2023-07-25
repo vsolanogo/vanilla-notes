@@ -1,0 +1,45 @@
+.notes-wrapper {
+  max-width: 100em;
+  margin: 1em auto;
+  display: grid;
+  grid-row-gap: 0.5em;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.note {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr) repeat(3, min-content);
+  grid-column-gap: 0.5em;
+  background-color: #e8eaf5;
+  padding: 0.5em;
+  align-items: center;
+
+  &__summary {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  &__edit {
+    grid-template-columns: repeat(3, 1fr) repeat(3, min-content);
+  }
+
+  &__hat {
+    background-color: #a5a7b3;
+    color: #fff;
+    font-weight: 600;
+  }
+}
+
+.btn {
+  cursor: pointer;
+  border: 2px solid white;
+  font: inherit;
+  background-color: #e8eaf5;
+  padding: 0.2em 1em;
+  border-radius: 100px;
+  transition: 0.2;
+  white-space: nowrap;
+
+  &:hover {
+    background-color: #abaec0;
+  }
+}
