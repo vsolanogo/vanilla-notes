@@ -1,36 +1,19 @@
-import { v4 as uuidv4 } from "uuid"
 import { initialData } from "./initialData"
-import { appendTo } from "./helper"
 import { NoteCreator } from "./noteCreator"
 import { SubmitNoteForm } from "./submitNoteForm"
 import { SubmitNewNoteButton } from "./submitNewNoteButton"
 import { SummaryInfoCreator } from "./summaryInfoCreator"
 import { NotesListHat } from "./notesListHat"
 import { SummaryHat } from "./summaryHat"
+import {
+  TASKS_LIST_ID,
+  NEW_FORM_CREATOR_WRAPPER_ID,
+  SUMMARY_LIST_ID,
+  ARCHIVED_TASKS_LIST_ID,
+  boostrapComponents,
+} from "./bootstrapComponents"
 
-const TASKS_LIST_ID = uuidv4()
-const tasksList = document.createElement("div")
-tasksList.id = TASKS_LIST_ID
-tasksList.className = "notes-wrapper"
-appendTo(document.body, tasksList)
-
-const NEW_FORM_CREATOR_WRAPPER = uuidv4()
-const SubmitNewFormWrapper = document.createElement("div")
-SubmitNewFormWrapper.id = NEW_FORM_CREATOR_WRAPPER
-SubmitNewFormWrapper.className = "notes-wrapper"
-appendTo(document.body, SubmitNewFormWrapper)
-
-const SUMMARY_LIST_ID = uuidv4()
-const summaryList = document.createElement("div")
-summaryList.id = SUMMARY_LIST_ID
-summaryList.className = "notes-wrapper"
-appendTo(document.body, summaryList)
-
-const ARCHIVED_TASKS_LIST_ID = uuidv4()
-const archivedTasksList = document.createElement("div")
-archivedTasksList.id = ARCHIVED_TASKS_LIST_ID
-archivedTasksList.className = "notes-wrapper"
-appendTo(document.body, archivedTasksList)
+boostrapComponents()
 
 function Observable() {
   this.observerList = []
@@ -161,7 +144,7 @@ function NotesList(observable) {
 function NewFormCreator(observable) {
   Observer.call(this, observable)
 
-  document.getElementById(NEW_FORM_CREATOR_WRAPPER).replaceChildren(
+  document.getElementById(NEW_FORM_CREATOR_WRAPPER_ID).replaceChildren(
     SubmitNewNoteButton({
       onSubmit: (newElement) => {
         this.observable.addToList(newElement)

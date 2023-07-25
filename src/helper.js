@@ -3,7 +3,12 @@ export const appendTo = (parent, newElement) => {
     throw new Error(`Arguments should be DOM elements`)
   }
 
-  return parent.appendChild(newElement)
+  try {
+    return parent.appendChild(newElement)
+  } catch (error) {
+    console.error("Error occurred during appendChild:", error.message)
+    return null
+  }
 }
 
 export const getDates = (str) => {
